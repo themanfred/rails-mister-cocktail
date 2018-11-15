@@ -1,0 +1,26 @@
+<h1><%= @cocktail.name %></h1>
+
+<div id="ingredient">
+  <h4>Ingredient</h4>
+  <div class="ingredeient">
+<% @cocktail.doses.each do |dose| %>
+  <li>
+    <div class="ingredient_name">
+      <%= dose.ingredient.name %>
+    </div>
+    <div class="ingredient_description">
+      <%= dose.description %>
+    </div>
+    <div class="add-in">
+      <%= link_to 'Edit Ingredient',  edit_cocktail_path(@cocktail)  %>
+      <%= link_to 'Delete Ingredients', cocktail_dose_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+      <% end %>
+    </li>
+  </div>
+ </div>
+</div>
+
+
+<%= link_to 'Add ingredient',  new_cocktail_dose_path(@cocktail) %>
+
+ <%= link_to 'Back', cocktails_path  %>
